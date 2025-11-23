@@ -14,7 +14,7 @@ const HeroBanner = () => {
 					</p>
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
 						<Link
-							className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors bg-background text-foreground hover:bg-secondary/80 hover:text-background h-11 rounded-md px-8 text-lg"
+							className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all duration-300 bg-background text-foreground hover:bg-secondary/80 hover:text-background h-11 rounded-md px-8 text-lg"
 							href="/products"
 						>
 							Browse Products{" "}
@@ -35,7 +35,7 @@ const HeroBanner = () => {
 							</svg>
 						</Link>
 						<Link
-							className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium border border-background h-11 rounded-md px-8 text-lg bg-transparent transition-all duration-200 text-background hover:bg-background hover:text-foreground"
+							className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium border border-background h-11 rounded-md px-8 text-lg bg-transparent transition-all duration-300 text-background hover:bg-background hover:text-foreground"
 							href="/about"
 						>
 							Learn More

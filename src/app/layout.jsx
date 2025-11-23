@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/Navbar/Navbar";
 
@@ -6,6 +6,12 @@ const inter = Inter({
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700"],
 	variable: "--font-inter",
+});
+
+const poppins = Poppins({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-poppins",
 });
 
 export const metadata = {
@@ -16,7 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" data-theme="light">
-			<body className={`${inter.variable} antialiased`}>
+			<body
+				className={`${inter.variable} ${poppins.variable}  antialiased`}
+			>
 				<Navbar />
 				{children}
 			</body>

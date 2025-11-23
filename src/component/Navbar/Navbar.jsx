@@ -22,7 +22,7 @@ const Navbar = () => {
 	return (
 		<section className="shadow-sm py-4 sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
 			<div className="container">
-				<div className="navbar p-0 min-h-0">
+				<div className="navbar inter p-0 min-h-0">
 					{/* Navbar Start */}
 					<div className="navbar-start">
 						<div className="dropdown">

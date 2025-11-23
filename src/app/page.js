@@ -1,11 +1,15 @@
 import Features from "@/component/Features/Features";
 import HeroBanner from "@/component/HeroBanner/HeroBanner";
+import StatsBanner from "@/component/StatsBanner/StatsBanner";
+import Testimonials from "@/component/Testimonials/Testimonials";
 
 export default function Home() {
 	return (
 		<>
 			<HeroBanner />
 			<Features />
+			<StatsBanner />
+			<Testimonials />
 		</>
 	);
 }

@@ -23,7 +23,7 @@ const Features = () => {
 		},
 	];
 	return (
-		<section className="py-16 bg-[#FAFBFD]">
+		<section className="py-16 inter bg-[#FAFBFD]">
 			<div className="container">
 				<div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 					{features.map((feature, idx) => (

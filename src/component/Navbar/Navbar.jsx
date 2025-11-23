@@ -20,9 +20,9 @@ const Navbar = () => {
 		</>
 	);
 	return (
-		<section className="shadow-sm">
+		<section className="shadow-sm py-4">
 			<div className="container">
-				<div className="navbar">
+				<div className="navbar p-0 min-h-0">
 					{/* Navbar Start */}
 					<div className="navbar-start">
 						<div className="dropdown">

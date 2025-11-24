@@ -3,7 +3,9 @@ import ProductCard from "./ProductCard";
 import { ArrowRight } from "lucide-react";
 
 const FeaturedProducts = async () => {
-	const res = await fetch("http://localhost:3000/featuredProducts.json");
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_SITE_URL}/featuredProducts.json`
+	);
 	const products = await res.json();
 	return (
 		<section className="py-16">
@@ -21,9 +23,9 @@ const FeaturedProducts = async () => {
 						<ProductCard key={product.id} product={product} />
 					))}
 				</div>
-				<div class="text-center">
+				<div className="text-center">
 					<Link
-						class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-border bg-background hover:bg-primary hover:text-background h-11 rounded-md px-8"
+						className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-border bg-background hover:bg-primary hover:text-background h-11 rounded-md px-8"
 						href="/products"
 					>
 						View All Products <ArrowRight />

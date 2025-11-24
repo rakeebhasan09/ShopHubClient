@@ -1,0 +1,37 @@
+import Link from "next/link";
+import ProductCard from "./ProductCard";
+import { ArrowRight } from "lucide-react";
+
+const FeaturedProducts = async () => {
+	const res = await fetch("http://localhost:3000/featuredProducts.json");
+	const products = await res.json();
+	return (
+		<section className="py-16">
+			<div className="container inter">
+				<div className="text-center mb-12">
+					<h2 className="text-3xl md:text-4xl font-bold mb-4">
+						Featured Products
+					</h2>
+					<p className="text-muted max-w-2xl mx-auto">
+						Handpicked selection of our most popular items
+					</p>
+				</div>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+					{products.map((product) => (
+						<ProductCard key={product.id} product={product} />
+					))}
+				</div>
+				<div class="text-center">
+					<Link
+						class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-border bg-background hover:bg-primary hover:text-background h-11 rounded-md px-8"
+						href="/products"
+					>
+						View All Products <ArrowRight />
+					</Link>
+				</div>
+			</div>
+		</section>
+	);
+};
+
+export default FeaturedProducts;

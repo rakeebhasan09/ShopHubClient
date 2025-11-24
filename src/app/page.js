@@ -1,4 +1,5 @@
 import CallToAction from "@/component/CallToAction/CallToAction";
+import FeaturedProducts from "@/component/FeaturedProducts/FeaturedProducts";
 import Features from "@/component/Features/Features";
 import HeroBanner from "@/component/HeroBanner/HeroBanner";
 import StatsBanner from "@/component/StatsBanner/StatsBanner";
@@ -9,6 +10,7 @@ export default function Home() {
 		<>
 			<HeroBanner />
 			<Features />
+			<FeaturedProducts />
 			<StatsBanner />
 			<Testimonials />
 			<CallToAction />

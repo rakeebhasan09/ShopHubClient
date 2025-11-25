@@ -1,6 +1,10 @@
+import Link from "next/link";
 import React from "react";
 
 const AddProduct = () => {
+	const cancleHandler = () => {
+		window.location.href = "/manage-products";
+	};
 	return (
 		<section className="py-16 inter">
 			<div className="container">
@@ -116,12 +120,13 @@ const AddProduct = () => {
 								</button>
 
 								{/* Cancle Button */}
-								<button
+								<Link
+									href="/manage-products"
 									className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-border bg-background hover:bg-accent hover:text-background transition-colors duration-200 h-10 px-4 py-2"
 									type="button"
 								>
 									Cancel
-								</button>
+								</Link>
 							</div>
 						</form>
 					</div>

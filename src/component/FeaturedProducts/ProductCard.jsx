@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -7,8 +8,10 @@ const ProductCard = ({ product }) => {
 	return (
 		<div className="h-full border border-border rounded-lg flex flex-col card-hover overflow-hidden group">
 			<div className="relative overflow-hidden aspect-square">
-				<img
+				<Image
 					src={image}
+					width={500}
+					height={500}
 					alt=""
 					className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
 				/>

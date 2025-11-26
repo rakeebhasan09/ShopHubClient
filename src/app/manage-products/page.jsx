@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const ManageProducts = () => {
 	const { user, loading } = useAuth();
@@ -29,6 +30,34 @@ const ManageProducts = () => {
 		.catch((error) => {
 			console.log(error);
 		});
+
+	// Delete Handler
+	const deleteProduct = (id) => {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Delete",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				axiosInstance
+					.delete(`/products/${id}`)
+					.then(() => {
+						Swal.fire({
+							title: "Deleted!",
+							text: "Your Product has been deleted.",
+							icon: "success",
+						});
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}
+		});
+	};
 
 	return (
 		<section className="py-16 inter">
@@ -102,7 +131,14 @@ const ManageProducts = () => {
 												<button className="py-2 px-2 border border-border rounded">
 													<Eye />
 												</button>
-												<button className="py-2 ml-2.5 px-2 border border-border rounded">
+												<button
+													onClick={() =>
+														deleteProduct(
+															product._id
+														)
+													}
+													className="py-2 ml-2.5 px-2 border border-border rounded"
+												>
 													<Trash />
 												</button>
 											</th>

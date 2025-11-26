@@ -9,7 +9,7 @@ const SingleProduct = async ({ params }) => {
 		`${process.env.NEXT_PUBLIC_SITE_URL}/products/${productId}`
 	);
 	const product = await res.json();
-	console.log(product);
+
 	return (
 		<section className="py-16 inter">
 			<div className="container">

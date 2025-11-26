@@ -129,7 +129,11 @@ const ManageProducts = () => {
 											</td>
 											<th>
 												<button className="py-2 px-2 border border-border rounded">
-													<Eye />
+													<Link
+														href={`/products/${product._id}`}
+													>
+														<Eye />
+													</Link>
 												</button>
 												<button
 													onClick={() =>

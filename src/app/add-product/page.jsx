@@ -1,10 +1,20 @@
+"use client";
+
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 const AddProduct = () => {
-	const cancleHandler = () => {
-		window.location.href = "/manage-products";
-	};
+	const { user, loading } = useAuth();
+	const router = useRouter();
+
+	useEffect(() => {
+		if (!loading && !user) {
+			return router.push("/login");
+		}
+	}, [user, router, loading]);
+
 	return (
 		<section className="py-16 inter">
 			<div className="container">

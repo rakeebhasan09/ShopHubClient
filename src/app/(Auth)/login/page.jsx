@@ -1,7 +1,9 @@
+"use client";
+
 import Social from "@/component/Social/Social";
 import { Package } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { use } from "react";
 
 const Login = () => {
 	return (

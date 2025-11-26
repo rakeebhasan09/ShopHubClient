@@ -1,9 +1,26 @@
+"use client";
+import useAuth from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Social = () => {
+	const { googleLogin } = useAuth();
+	const router = useRouter();
+	const handleGoogleLogin = () => {
+		googleLogin()
+			.then(() => {
+				router.push("/");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 	return (
 		<div>
-			<button className="btn bg-white w-full text-black border-[#e5e5e5]">
+			<button
+				onClick={handleGoogleLogin}
+				className="btn bg-white w-full text-black border-[#e5e5e5]"
+			>
 				<svg
 					aria-label="Google logo"
 					width="16"

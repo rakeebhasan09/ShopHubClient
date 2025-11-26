@@ -1,8 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import NavLink from "../NavLink/NavLink";
+import Image from "next/image";
+import useAuth from "@/hooks/useAuth";
 
 const Navbar = () => {
+	const { user, logOut } = useAuth();
+	const handleLogOut = () => {
+		logOut()
+			.then(() => {
+				console.log("Logout Successfull!");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+
 	const links = (
 		<>
 			<li>
@@ -86,20 +101,61 @@ const Navbar = () => {
 					</div>
 					{/* Navbar End */}
 					<div className="navbar-end">
-						<div className="flex items-center gap-2.5">
-							<Link
-								href="/login"
-								className="px-5 py-1.5 border border-secondary rounded-md font-semibold"
-							>
-								Login
-							</Link>
-							<Link
-								href="/register"
-								className="hidden sm:block px-5 py-2 bg-primary text-white rounded-md font-semibold"
-							>
-								Register
-							</Link>
-						</div>
+						{user ? (
+							<div className="dropdown dropdown-end">
+								<div
+									tabIndex={0}
+									role="button"
+									className="btn btn-ghost btn-circle avatar"
+								>
+									<div className="w-10 rounded-full">
+										<Image
+											width={500}
+											height={500}
+											alt={user.displayName}
+											src={user.photoURL}
+										/>
+									</div>
+								</div>
+								<ul
+									tabIndex="-1"
+									className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3  p-2 shadow"
+								>
+									<li className="p-2">{user.displayName}</li>
+									<li className="px-2 pb-1">{user.email}</li>
+									<li>
+										<Link href="/add-product">
+											Add Product
+										</Link>
+									</li>
+									<li>
+										<Link href="/manage-products">
+											Manage Products
+										</Link>
+									</li>
+									<li>
+										<button onClick={handleLogOut}>
+											Logout
+										</button>
+									</li>
+								</ul>
+							</div>
+						) : (
+							<div className="flex items-center gap-2.5">
+								<Link
+									href="/login"
+									className="px-5 py-1.5 border border-secondary rounded-md font-semibold"
+								>
+									Login
+								</Link>
+								<Link
+									href="/register"
+									className="hidden sm:block px-5 py-2 bg-primary text-white rounded-md font-semibold"
+								>
+									Register
+								</Link>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

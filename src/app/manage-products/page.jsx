@@ -1,9 +1,21 @@
+"use client";
+import useAuth from "@/hooks/useAuth";
 import { Eye, Plus, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 const ManageProducts = () => {
+	const { user, loading } = useAuth();
+	const router = useRouter();
+
+	useEffect(() => {
+		if (!loading && !user) {
+			return router.push("/login");
+		}
+	}, [user, router, loading]);
+
 	return (
 		<section className="py-16 inter">
 			<div className="container">

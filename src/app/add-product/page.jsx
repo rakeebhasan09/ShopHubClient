@@ -1,19 +1,47 @@
 "use client";
 
 import useAuth from "@/hooks/useAuth";
+import useAxios from "@/hooks/useAxios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
 	const { user, loading } = useAuth();
 	const router = useRouter();
+
+	const axiosInstance = useAxios();
 
 	useEffect(() => {
 		if (!loading && !user) {
 			return router.push("/login");
 		}
 	}, [user, router, loading]);
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
+	const handleAddProduct = (data) => {
+		const formData = data;
+		formData.name = user.displayName;
+		formData.email = user.email;
+		axiosInstance.post("/products", formData).then((data) => {
+			if (data.data.insertedId) {
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "Your Product has been saved",
+					showConfirmButton: false,
+					timer: 1500,
+				});
+			}
+		});
+	};
 
 	return (
 		<section className="py-16 inter">
@@ -31,7 +59,10 @@ const AddProduct = () => {
 					</div>
 					{/* From Area */}
 					<div className="p-6 pt-0">
-						<form className="space-y-6">
+						<form
+							onSubmit={handleSubmit(handleAddProduct)}
+							className="space-y-6"
+						>
 							{/* Title */}
 							<div className="space-y-2">
 								<label className="text-sm font-medium leading-none block">
@@ -40,9 +71,14 @@ const AddProduct = () => {
 								<input
 									type="text"
 									className="flex h-10 w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base md:text-sm"
-									name="title"
+									{...register("title", { required: true })}
 									placeholder="Premium Wireless Watch"
 								/>
+								{errors.title?.type === "required" && (
+									<p className="text-red-500 text-xs">
+										Product title is required
+									</p>
+								)}
 							</div>
 							{/* Short Description */}
 							<div className="space-y-2">
@@ -52,9 +88,17 @@ const AddProduct = () => {
 								<input
 									type="text"
 									className="flex h-10 w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base md:text-sm"
-									name="title"
+									{...register("shortDescription", {
+										required: true,
+									})}
 									placeholder="Brief product description (1-2 lines)"
 								/>
+								{errors.shortDescription?.type ===
+									"required" && (
+									<p className="text-red-500 text-xs">
+										Short Description is required
+									</p>
+								)}
 							</div>
 							{/* Short Description */}
 							<div className="space-y-2">
@@ -62,10 +106,18 @@ const AddProduct = () => {
 									Full Description *
 								</label>
 								<textarea
+									{...register("description", {
+										required: true,
+									})}
 									className="flex w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base md:text-sm"
 									placeholder="Detailed product description including features, specifications, and benefits..."
 									rows={10}
 								></textarea>
+								{errors.description?.type === "required" && (
+									<p className="text-red-500 text-xs">
+										Description is required
+									</p>
+								)}
 							</div>
 							{/* Price & Category */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,9 +129,16 @@ const AddProduct = () => {
 									<input
 										type="number"
 										className="flex h-10 w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base md:text-sm"
-										name="title"
+										{...register("price", {
+											required: true,
+										})}
 										placeholder="299"
 									/>
+									{errors.price?.type === "required" && (
+										<p className="text-red-500 text-xs">
+											Price is required
+										</p>
+									)}
 								</div>
 								{/* Category */}
 								<div className="space-y-2">
@@ -88,6 +147,11 @@ const AddProduct = () => {
 									</label>
 									<select
 										defaultValue="Select category"
+										{...register("category", {
+											validate: (v) =>
+												v !== "Select category" ||
+												"Category is required",
+										})}
 										className="select outline-0 ring-0 border w-full border-border"
 									>
 										<option disabled={true}>
@@ -102,6 +166,11 @@ const AddProduct = () => {
 										<option value="Beauty">Beauty</option>
 										<option value="Home">Home</option>
 									</select>
+									{errors.category && (
+										<p className="text-red-500 text-xs">
+											{errors.category.message}
+										</p>
+									)}
 								</div>
 							</div>
 							{/* Short Description */}
@@ -112,9 +181,14 @@ const AddProduct = () => {
 								<input
 									type="text"
 									className="flex h-10 w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base md:text-sm"
-									name="title"
+									{...register("photo", { required: true })}
 									placeholder="https://example.com/image.jpg"
 								/>
+								{errors.photo?.type === "required" && (
+									<p className="text-red-500 text-xs">
+										Photo URL is required
+									</p>
+								)}
 								<p className="text-xs text-muted">
 									Enter a direct URL to your product image
 								</p>

@@ -1,15 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const ProductCard = ({ product }) => {
-	const { id, image, title, description, price, category } = product;
+	const { _id, photo, title, shortDescription, price, category } = product;
 
 	return (
 		<div className="h-full border border-border rounded-lg flex flex-col card-hover overflow-hidden group">
 			<div className="relative overflow-hidden aspect-square">
 				<Image
-					src={image}
+					src={photo}
 					width={500}
 					height={500}
 					alt=""
@@ -27,12 +29,12 @@ const ProductCard = ({ product }) => {
 						{title}
 					</h3>
 					<p className="text-sm text-muted-foreground line-clamp-2 mb-3">
-						{description}
+						{shortDescription}
 					</p>
-					<p className="text-2xl font-bold text-primary">{price}</p>
+					<p className="text-2xl font-bold text-primary">${price}</p>
 				</div>
 				<Link
-					href={`/products/${id}`}
+					href={`/products/${_id}`}
 					className="w-full flex items-center justify-center whitespace-nowrap rounded-md bg-primary text-background h-10 py-2 text-sm "
 				>
 					View Details

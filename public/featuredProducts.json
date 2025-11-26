@@ -3,7 +3,7 @@
 		"id": "1",
 		"image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
 		"title": "Premium Wireless Watch",
-		"description": "Elegant design with advanced features for modern lifestyle",
+		"shortDescription": "Elegant design with advanced features for modern lifestyle",
 		"price": "$299",
 		"category": "Electronics"
 	},
@@ -11,7 +11,7 @@
 		"id": "2",
 		"image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
 		"title": "Studio Headphones Pro",
-		"description": "Professional audio quality with noise cancellation",
+		"shortDescription": "Professional audio quality with noise cancellation",
 		"price": "$199",
 		"category": "Audio"
 	},
@@ -19,7 +19,7 @@
 		"id": "3",
 		"image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
 		"title": "Designer Sunglasses",
-		"description": "UV protection with timeless style",
+		"shortDescription": "UV protection with timeless style",
 		"price": "$149",
 		"category": "Fashion"
 	}

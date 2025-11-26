@@ -3,72 +3,81 @@
 		"id": "1",
 		"image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
 		"title": "Premium Wireless Watch",
-		"description": "Elegant design with advanced features for modern lifestyle. Water-resistant and long battery life.",
+		"shortDescription": "Elegant design with advanced features for modern lifestyle",
 		"price": "$299",
-		"category": "Electronics"
+		"category": "Electronics",
+		"description": "The Premium Wireless Watch combines advanced technology with a sleek, stylish design created for modern users. It offers health tracking features, instant notifications, and seamless connectivity with smartphones. With its lightweight build and comfortable strap, it’s suitable for all-day wear. The high-resolution display provides crisp visibility in different lighting conditions. Its long battery life ensures reliable performance throughout busy days. Whether used for fitness tracking, productivity, or daily convenience, this watch delivers sophistication and efficiency in one product."
 	},
 	{
 		"id": "2",
 		"image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
 		"title": "Studio Headphones Pro",
-		"description": "Professional audio quality with active noise cancellation and comfortable ear cushions.",
+		"shortDescription": "Professional audio quality with noise cancellation",
 		"price": "$199",
-		"category": "Audio"
+		"category": "Audio",
+		"description": "Studio Headphones Pro provide a high-end listening experience designed for audiophiles and professionals. Featuring advanced noise-cancellation technology, they block outside sounds to create an immersive environment. The cushioned ear cups and adjustable headband make them comfortable for long sessions. Their balanced sound profile delivers deep bass, clear vocals, and detailed highs. Whether used for music production, gaming, or casual listening, these headphones ensure consistent audio quality. The durable construction and premium materials make them a long-lasting investment for anyone serious about sound."
 	},
 	{
 		"id": "3",
 		"image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
 		"title": "Designer Sunglasses",
-		"description": "UV protection with timeless style. Premium materials and craftsmanship.",
+		"shortDescription": "UV protection with timeless style",
 		"price": "$149",
-		"category": "Fashion"
+		"category": "Fashion",
+		"description": "These Designer Sunglasses offer a perfect blend of modern fashion and functional eye protection. Made with lightweight yet durable materials, they provide comfortable all-day wear. The lenses feature full UV protection to safeguard your eyes from harmful rays. Their classic design makes them suitable for a variety of outfits and occasions, from summer outings to formal events. The polished finish and premium detailing add a touch of luxury. Ideal for fashion lovers, travelers, and anyone seeking a reliable accessory that enhances their style effortlessly."
 	},
 	{
 		"id": "4",
-		"image": "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=800&q=80",
-		"title": "Leather Backpack",
-		"description": "Handcrafted genuine leather backpack with multiple compartments for daily use.",
-		"price": "$179",
-		"category": "Fashion"
+		"image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&q=80",
+		"title": "Pro DSLR Camera",
+		"shortDescription": "High-resolution photography with advanced controls",
+		"price": "$799",
+		"category": "Electronics",
+		"description": "The Pro DSLR Camera is designed for photographers who want exceptional image quality and professional-grade features. It offers high-resolution shooting, fast autofocus, and extensive manual controls for creative flexibility. The rugged body ensures durability in a variety of shooting conditions. With its large sensor and advanced lens compatibility, it captures rich colors and fine details even in low light. Whether you're shooting portraits, landscapes, or action shots, this camera delivers outstanding performance for enthusiasts and professionals alike."
 	},
 	{
 		"id": "5",
-		"image": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&q=80",
-		"title": "Running Shoes Elite",
-		"description": "Lightweight and breathable design for maximum comfort during workouts.",
+		"image": "https://i.ibb.co.com/jPBP1kZc/Kitchen-Blender.jpg",
+		"title": "Smart Kitchen Blender",
+		"shortDescription": "Powerful blending with smart presets",
 		"price": "$129",
-		"category": "Sports"
+		"category": "Home",
+		"description": "The Smart Kitchen Blender brings convenience and power to everyday cooking. Its high-speed motor and premium blades allow smooth blending of fruits, vegetables, ice, and more. With built-in smart presets, it adjusts speed and timing automatically for perfect results. The durable pitcher is easy to clean and designed for frequent use. Whether preparing smoothies, sauces, soups, or shakes, this blender ensures consistency and efficiency. Ideal for home cooks, fitness lovers, and busy individuals who value quick and healthy food preparation options."
 	},
 	{
 		"id": "6",
-		"image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80",
-		"title": "Wireless Keyboard",
-		"description": "Mechanical switches with RGB lighting and ergonomic design for productivity.",
-		"price": "$89",
-		"category": "Electronics"
+		"image": "https://i.ibb.co.com/HpHJw76d/Leather-Backpack.jpg",
+		"title": "Modern Leather Backpack",
+		"shortDescription": "Stylish, durable, and perfect for travel",
+		"price": "$179",
+		"category": "Fashion",
+		"description": "The Modern Leather Backpack blends luxury and practicality, making it a perfect companion for daily commuting or travel. Crafted from premium leather, it offers long-lasting durability and a timeless aesthetic. Multiple compartments provide space for laptops, books, and essentials while keeping them organized. The padded straps ensure comfort during extended wear. Whether used for work, school, or weekend trips, this backpack delivers elegance and reliability. Its versatile design makes it suitable for both casual and professional settings."
 	},
 	{
 		"id": "7",
-		"image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&q=80",
-		"title": "Smart Watch Series 5",
-		"description": "Track your fitness goals with heart rate monitoring and GPS tracking.",
-		"price": "$349",
-		"category": "Electronics"
+		"image": "https://i.ibb.co.com/B2dmQ6Jr/Wireless-Bluetooth-Speaker.jpg",
+		"title": "Wireless Bluetooth Speaker",
+		"shortDescription": "Rich sound with portable design",
+		"price": "$89",
+		"category": "Audio",
+		"description": "The Wireless Bluetooth Speaker offers powerful sound performance in a compact, travel-friendly form. It delivers clear highs, deep bass, and balanced mids for enjoyable music in any environment. The long-lasting battery ensures hours of playback, making it ideal for outdoor activities, gatherings, or home use. With its durable build and water-resistant design, it can handle everyday adventures. Pairing is quick and easy, allowing seamless connectivity with phones, tablets, and laptops. Perfect for users who want convenience without sacrificing audio quality."
 	},
 	{
 		"id": "8",
-		"image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=800&q=80",
-		"title": "Perfume Luxury Edition",
-		"description": "Sophisticated fragrance with long-lasting scent for special occasions.",
-		"price": "$119",
-		"category": "Beauty"
+		"image": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=80",
+		"title": "Premium Running Shoes",
+		"shortDescription": "Comfortable fit with high-performance cushioning",
+		"price": "$139",
+		"category": "Sports",
+		"description": "Premium Running Shoes are designed to enhance comfort and performance for runners of all levels. They feature responsive cushioning that reduces impact and improves stability. The breathable upper material keeps feet cool during long runs, while the grippy outsole ensures traction on different surfaces. Lightweight yet durable, these shoes support daily training, gym workouts, and outdoor jogging. Their modern design makes them both functional and stylish, appealing to athletes and casual fitness enthusiasts alike."
 	},
 	{
 		"id": "9",
-		"image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=800&q=80",
-		"title": "Minimalist Desk Lamp",
-		"description": "Adjustable LED desk lamp with multiple brightness levels and USB charging.",
-		"price": "$69",
-		"category": "Home"
+		"image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800&q=80",
+		"title": "Luxury Scented Candle",
+		"shortDescription": "Relaxing fragrance for home ambiance",
+		"price": "$49",
+		"category": "Home",
+		"description": "The Luxury Scented Candle adds a calming and elegant touch to any room. Made with high-quality wax and natural fragrances, it delivers a long-lasting, soothing aroma. The candle burns cleanly and evenly, creating a peaceful atmosphere ideal for relaxation, meditation, or cozy evenings. Its stylish container makes it a beautiful décor piece that complements modern and traditional interiors. Perfect as a gift or personal indulgence, this candle enhances any space with warmth and sophistication."
 	}
 ]

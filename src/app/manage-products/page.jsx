@@ -1,20 +1,34 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
+import useAxios from "@/hooks/useAxios";
 import { Eye, Plus, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const ManageProducts = () => {
 	const { user, loading } = useAuth();
 	const router = useRouter();
+	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
 		if (!loading && !user) {
 			return router.push("/login");
 		}
 	}, [user, router, loading]);
+
+	const axiosInstance = useAxios();
+	axiosInstance
+		.get(
+			`${process.env.NEXT_PUBLIC_SITE_URL}/products?email=${user?.email}`
+		)
+		.then((data) => {
+			setProducts(data.data);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 
 	return (
 		<section className="py-16 inter">
@@ -55,39 +69,45 @@ const ManageProducts = () => {
 								</thead>
 								<tbody>
 									{/* row 1 */}
-									<tr>
-										<td>
-											<div className="flex items-center gap-3">
-												<div className="avatar">
-													<div className="mask mask-squircle h-12 w-12">
-														<Image
-															width={100}
-															height={100}
-															src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-															alt="Avatar Tailwind CSS Component"
-														/>
+									{products.map((product) => (
+										<tr key={product._id}>
+											<td>
+												<div className="flex items-center gap-3">
+													<div className="avatar">
+														<div className="mask mask-squircle h-12 w-12">
+															<Image
+																width={100}
+																height={100}
+																src={
+																	product.photo
+																}
+																alt={
+																	product.title
+																}
+															/>
+														</div>
 													</div>
 												</div>
-											</div>
-										</td>
-										<td className="whitespace-nowrap">
-											Zemlak, Daniel and Leannon
-										</td>
-										<td className="whitespace-nowrap">
-											Category
-										</td>
-										<td className="whitespace-nowrap">
-											$233
-										</td>
-										<th>
-											<button className="py-2 px-2 border border-border rounded">
-												<Eye />
-											</button>
-											<button className="py-2 ml-2.5 px-2 border border-border rounded">
-												<Trash />
-											</button>
-										</th>
-									</tr>
+											</td>
+											<td className="whitespace-nowrap">
+												{product.title}
+											</td>
+											<td className="whitespace-nowrap">
+												{product.category}
+											</td>
+											<td className="whitespace-nowrap">
+												${product.price}
+											</td>
+											<th>
+												<button className="py-2 px-2 border border-border rounded">
+													<Eye />
+												</button>
+												<button className="py-2 ml-2.5 px-2 border border-border rounded">
+													<Trash />
+												</button>
+											</th>
+										</tr>
+									))}
 								</tbody>
 							</table>
 						</div>

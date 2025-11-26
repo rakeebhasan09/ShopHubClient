@@ -24,6 +24,7 @@ const AddProduct = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm();
 
 	const handleAddProduct = (data) => {
@@ -32,6 +33,8 @@ const AddProduct = () => {
 		formData.email = user.email;
 		axiosInstance.post("/products", formData).then((data) => {
 			if (data.data.insertedId) {
+				reset();
+				router.push("/manage-products");
 				Swal.fire({
 					position: "center",
 					icon: "success",

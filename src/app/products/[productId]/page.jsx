@@ -5,6 +5,11 @@ import React from "react";
 
 const SingleProduct = async ({ params }) => {
 	const { productId } = await params;
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_SITE_URL}/products/${productId}`
+	);
+	const product = await res.json();
+	console.log(product);
 	return (
 		<section className="py-16 inter">
 			<div className="container">
@@ -18,7 +23,6 @@ const SingleProduct = async ({ params }) => {
 						Back to Products
 					</Link>
 				</div>
-				single product here {productId}
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
 					{/* Image */}
 					<div>
@@ -26,24 +30,26 @@ const SingleProduct = async ({ params }) => {
 							width={100}
 							height={100}
 							className="w-full rounded-lg"
-							src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-							alt=""
+							src={product.photo}
+							alt={product.title}
 						/>
 					</div>
 					{/* Description */}
 					<div>
 						{/* Category */}
 						<div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors  border-transparent bg-primary text-background hover:bg-primary/80 mb-3">
-							Electronics
+							{product.category}
 						</div>
 						{/* Product Title */}
 						<h1 className="text-3xl md:text-4xl font-bold mb-4">
-							Premium Wireless Watch
+							{product.title}
 						</h1>
 						{/* Price */}
 						<p className="text-4xl font-bold text-primary mb-6">
-							$299
+							${product.price}
 						</p>
+						{/* Description */}
+						<p className="text-muted">{product.description}</p>
 						{/* Divider */}
 						<div className="divider"></div>
 						{/* Some Information */}

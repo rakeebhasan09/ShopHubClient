@@ -1,10 +1,22 @@
+"use client";
+
 import ProductCard from "@/component/FeaturedProducts/ProductCard";
 import SearchFilter from "@/component/SearchFilter/SearchFilter";
-import React from "react";
+import useAxios from "@/hooks/useAxios";
+import React, { useEffect, useState } from "react";
 
-const Products = async () => {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/products`);
-	const products = await res.json();
+const Products = () => {
+	const [products, setProducts] = useState([]);
+	const axiosInstance = useAxios();
+
+	useEffect(() => {
+		axiosInstance
+			.get(`${process.env.NEXT_PUBLIC_SITE_URL}/products`)
+			.then((res) => setProducts(res.data))
+			.catch((error) => {
+				console.log(error);
+			});
+	}, [axiosInstance]);
 
 	return (
 		<section className="py-12">

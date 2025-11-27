@@ -23,8 +23,8 @@ const ProductCard = ({ product }) => {
 					</span>
 				)}
 			</div>
-			<div className="inter px-4 py-5">
-				<div className="pb-6">
+			<div className="inter flex flex-col grow px-4 py-5">
+				<div className="pb-6 grow">
 					<h3 className="font-display font-semibold text-lg mb-2 line-clamp-1">
 						{title}
 					</h3>

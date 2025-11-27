@@ -1,11 +1,41 @@
 "use client";
 
 import Social from "@/component/Social/Social";
+import useAuth from "@/hooks/useAuth";
 import { Package } from "lucide-react";
 import Link from "next/link";
-import React, { use } from "react";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const Login = () => {
+	const { emailPasswordLogin } = useAuth();
+	const router = useRouter();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm();
+
+	const handleUserLogin = (data) => {
+		emailPasswordLogin(data.email, data.password)
+			.then(() => {
+				reset();
+				router.push("/");
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "Login Successfull.",
+					showConfirmButton: false,
+					timer: 1500,
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 	return (
 		<section className="py-12 inter">
 			<div className="container">
@@ -29,7 +59,10 @@ const Login = () => {
 					</div>
 					{/* Form Area */}
 					<div className="p-6 pt-0 space-y-4">
-						<form className="space-y-4">
+						<form
+							onSubmit={handleSubmit(handleUserLogin)}
+							className="space-y-4"
+						>
 							{/* Email */}
 							<div className="space-y-2">
 								<label className="text-sm block font-medium">
@@ -38,8 +71,14 @@ const Login = () => {
 								<input
 									type="email"
 									placeholder="john@example.com"
+									{...register("email", { required: true })}
 									className="flex h-10 w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base placeholder:text-muted md:text-sm"
 								/>
+								{errors.email?.type === "required" && (
+									<p className="text-xs text-red-500">
+										Email is required
+									</p>
+								)}
 							</div>
 							{/* Email */}
 							<div className="space-y-2">
@@ -49,8 +88,16 @@ const Login = () => {
 								<input
 									type="password"
 									placeholder="*******"
+									{...register("password", {
+										required: true,
+									})}
 									className="flex h-10 w-full rounded-md border border-border outline-0 bg-background px-3 py-2 text-base placeholder:text-muted md:text-sm"
 								/>
+								{errors.email?.type === "required" && (
+									<p className="text-xs text-red-500">
+										Email is required
+									</p>
+								)}
 							</div>
 							{/* Forget Password */}
 							<div className="flex items-center justify-end">

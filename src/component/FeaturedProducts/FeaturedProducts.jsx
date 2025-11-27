@@ -1,12 +1,22 @@
+"use client";
 import Link from "next/link";
 import ProductCard from "./ProductCard";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import useAxios from "@/hooks/useAxios";
 
-const FeaturedProducts = async () => {
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_SITE_URL}/products/latest`
-	);
-	const products = await res.json();
+const FeaturedProducts = () => {
+	const [products, setProducts] = useState([]);
+	const axiosInstance = useAxios();
+
+	useEffect(() => {
+		axiosInstance
+			.get(`${process.env.NEXT_PUBLIC_SITE_URL}/products`)
+			.then((res) => setProducts(res.data))
+			.catch((error) => {
+				console.log(error);
+			});
+	}, [axiosInstance]);
 	return (
 		<section className="py-16">
 			<div className="container inter">

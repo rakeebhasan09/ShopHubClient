@@ -31,19 +31,22 @@ const AddProduct = () => {
 		const formData = data;
 		formData.name = user.displayName;
 		formData.email = user.email;
-		axiosInstance.post("/products", formData).then((data) => {
-			if (data.data.insertedId) {
-				reset();
-				router.push("/manage-products");
-				Swal.fire({
-					position: "center",
-					icon: "success",
-					title: "Your Product has been saved",
-					showConfirmButton: false,
-					timer: 1500,
-				});
-			}
-		});
+		axiosInstance
+			.post("/products", formData)
+			.then((data) => {
+				if (data.data.insertedId) {
+					reset();
+					router.push("/manage-products");
+					Swal.fire({
+						position: "center",
+						icon: "success",
+						title: "Your Product has been saved",
+						showConfirmButton: false,
+						timer: 1500,
+					});
+				}
+			})
+			.catch((error) => console.log(error));
 	};
 
 	return (

@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ShopHub 🚀
 
-## Getting Started
+**ShopHub** is a modern web application designed to help users manage, showcase, and sell their products efficiently.  
+The platform allows users to create, view, and delete products while providing analytics, inventory tracking, and a smooth user experience.
 
-First, run the development server:
+![ProductHub Screenshot](./Screenshot1.png)
+
+---
+
+![ProductHub Screenshot](./Screenshot2.png)
+
+🔗 **Live Demo:** https://shophub-by-rakeeb.vercel.app/
+
+🔗 **GitHub Repository (Client):** https://github.com/rakeebhasan09/ShopHubClient.git
+
+🔗 **GitHub Repository (Server):** https://github.com/rakeebhasan09/ShopHub-server.git
+
+### Frontend
 
 ```bash
+git clone https://github.com/rakeebhasan09/ShopHubClient.git
+npm install
+// you need to set some environt variables
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend Routes
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| Route              | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| `/`                | Home page displaying featured products and stats |
+| `/login`           | Login page for users                             |
+| `/register`        | Registration page                                |
+| `/add-product`     | Add a new product (login required)               |
+| `/products`        | Browse all products                              |
+| `/products/:id`    | Product details page                             |
+| `/manage-products` | Manage user's products (login required)          |
+| `/about`           | About page                                       |
+| `/contact`         | Contact page                                     |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend:**  
+Next.js, React, Tailwind CSS, DaisyUI, Firebase, Axios, Lucide React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Backend:**  
+Node.js, Express.js, MongoDB, cors, dotenv

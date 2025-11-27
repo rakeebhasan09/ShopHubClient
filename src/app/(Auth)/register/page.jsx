@@ -1,3 +1,5 @@
+"use client";
+
 import Social from "@/component/Social/Social";
 import { Package } from "lucide-react";
 import React from "react";

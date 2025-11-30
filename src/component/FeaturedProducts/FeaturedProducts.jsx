@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
 
 	useEffect(() => {
 		axiosInstance
-			.get(`${process.env.NEXT_PUBLIC_SITE_URL}/products`)
+			.get(`${process.env.NEXT_PUBLIC_SITE_URL}/products/latest`)
 			.then((res) => setProducts(res.data))
 			.catch((error) => {
 				console.log(error);

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -34,6 +35,9 @@ const Login = () => {
 			})
 			.catch((error) => {
 				console.log(error);
+				if (error.code === "auth/invalid-credential") {
+					toast.error("invalid credential");
+				}
 			});
 	};
 	return (

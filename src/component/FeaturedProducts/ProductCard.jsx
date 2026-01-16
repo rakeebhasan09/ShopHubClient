@@ -9,13 +9,13 @@ const ProductCard = ({ product }) => {
 
 	return (
 		<div className="h-full border border-border rounded-lg flex flex-col card-hover overflow-hidden group">
-			<div className="relative overflow-hidden aspect-square">
+			<div className="relative overflow-hidden">
 				<Image
 					src={photo}
 					width={500}
-					height={500}
+					height={200}
 					alt=""
-					className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+					className="object-cover w-full h-62.5 transition-transform duration-300 group-hover:scale-105"
 				/>
 				{category && (
 					<span className="absolute top-3 right-3 bg-primary text-background px-2.5 py-0.5 text-xs font-semibold rounded-full">
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
 				)}
 			</div>
 			<div className="inter flex flex-col grow px-4 py-5">
-				<div className="pb-6 grow">
+				<div className="pb-4 grow">
 					<h3 className="font-display font-semibold text-lg mb-2 line-clamp-1">
 						{title}
 					</h3>

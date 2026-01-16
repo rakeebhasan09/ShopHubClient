@@ -13,7 +13,7 @@ const Footer = () => {
 							className="flex items-center gap-2 font-display text-xl font-bold"
 						>
 							<Package className="h-6 w-6 text-primary" />
-							ShopHub
+							SuperShop
 						</Link>
 						<p className="text-sm text-muted-foreground">
 							Your modern eCommerce solution for discovering and

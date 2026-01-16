@@ -5,13 +5,14 @@ import React from "react";
 import NavLink from "../NavLink/NavLink";
 import Image from "next/image";
 import useAuth from "@/hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
 	const { user, logOut } = useAuth();
 	const handleLogOut = () => {
 		logOut()
 			.then(() => {
-				console.log("Logout Successfull!");
+				toast.success("Logout Successfull!");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -92,7 +93,7 @@ const Navbar = () => {
 								<path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"></path>
 								<path d="m7.5 4.27 9 5.15"></path>
 							</svg>
-							ShopHub
+							SuperShop
 						</Link>
 					</div>
 					{/* Navbar Center */}
